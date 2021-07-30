@@ -9,7 +9,7 @@ import re
 
 
 # serial.Serial('COM5', 9600, 8)
-ser = serial.Serial('COM5', 9600, timeout = 5)
+ser = serial.Serial('COM6', 9600, timeout = 5)
 size = ser.readline()
 # data = ser.read()
 
