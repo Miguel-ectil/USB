@@ -1,7 +1,29 @@
 import re
 
-size = "605C7839635C7831625C7866635C7830355C7830305C7831315C7830304730455C783032205C5C2F2E5C783136222F5C7862365C783835365C7839622E6A5C7863325C7830355C7863302638725C7831625C7866345C7864635C7831645C7839345C786232265B5C7863305C7864335C7865375C7865612A5C7839345C783032215C7830305C7839387648295C7861315C7864365C5C355C786332485C7863345C7830325C7830355C7865335C7839635C7839635C7864665C786561235C7866302B5C7831665C7865355C7866307D5C7830325C7839665C7830303C5C786261455C7863665C7830305C7830305C7830305C783063495C7831345C78313545445C7831335D455C783134414640"
+# size = "65ad4sa56d165DF1A5F1AS65F1AD5F1AE8F1d61adf5ae1f68awe1fa"
 
-res = re.findall("[0-9]", size)
+# fist = size[:-1]
+# second = fist[1:]
+# print(second)
+a = input("Aq:")
+res = re.findall("[a-z]|[A-z]", a)
 for t in res:
     print(t,end="")
+
+
+# Puxar o Leitor passando a Porta COM e suas especificações
+    ser = serial.Serial('COM5', 9600, timeout=1)
+    # Fazer o programa pegar a saida do Leitor
+    size = ser.readline()
+    # Ver a saida do leitor
+    print(size)
+    # Criar uma variavel para tranformar o Byte da saida em String
+    primeira = str(size)
+    print(f"TEXTO=", primeira)
+    # Fazer o regex
+    teste = (re.findall(r'[A-Z]|[a-z]|[0-9]', primeira))
+    # Formatação da String
+    fist = teste[:-1]
+    final = fist[1:]
+    for t in final:
+        print(t, end="")
