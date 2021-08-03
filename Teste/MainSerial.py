@@ -9,14 +9,9 @@ ser = Serialapp()
 ser.updatePort()
 # Definir porta e bauderate
 ser.serialPort.port = 'COM5'
-ser.serialPort.baudrate = 9600
 # Conexão
 ser.conecxaoSerial()
-# Recebe 10 buffers da serial
-contador = 0
-while (1):
-    ser.readSerial()
-    if contador >= 10 : break
-    contador += 1
+# Leitura de Dados
+ser.readSerial()
 # Fechar a conexão
 ser.closeSerial()
