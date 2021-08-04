@@ -22,7 +22,7 @@ class Serialapp():
         
     # Receber dados
     def readSerial(self):
-        dataRead = self.serialPort.read(10).decode('utf-8')
+        dataRead = self.serialPort.read_until(expected=b'\r')
         print(dataRead)
     # Enviar dados
     def sendSerial(self,data):

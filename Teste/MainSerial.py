@@ -8,7 +8,7 @@ ser = Serialapp()
 # Realiza um update nas portas de dispositivos do PC
 ser.updatePort()
 # Definir porta e bauderate
-ser.serialPort.port = 'COM5'
+ser.serialPort.port = 'COM6'
 ser.serialPort.baudrate = 9600
 # Conexão
 ser.conecxaoSerial()
@@ -16,7 +16,6 @@ ser.conecxaoSerial()
 contador = 0
 while (1):
     ser.readSerial()
-    if contador >= 10 : break
-    contador += 1
+
 # Fechar a conexão
 ser.closeSerial()
