@@ -1,11 +1,16 @@
-# importing codecs.decode()
-import codecs
+import re
 
-# take hexadecimal string
-hex_str = '609c1bfc0500110047304502205c2f2e16222fb685369b2e6ac205c02638721bf4dc1d94b2265bc0d3e7ea2a9402210098764829a1d65c35c248c40205e39c9cdfea23f02b1fe5f07d029f003cba45cf0000000c4914154544135d45144146400d'
+texto = b"a\x08*I\x05\x00\x11\x00F0D\x02 px\x9d\x9fb\xad\t\\$\x16\xae\x04\x1d\x1f-\xb0\xa3!:\xd4\rf\x05\x05R\x88\xd3Y\x8f\xa2\x84\x9e\x02 *\x81\xc8\x95\x03\x1f\xfc\xdafu\xb8x\xd8W\x83\xca\xfd\x17\x163*y9$\xe7\xc5\xec\xb2\xcbe\xe8\x92\x00\x00\x00\x0cI\x14\x18ED\x14I%\xd1YT\x80\r"
 
-# convert hex string to ASCII string
+hexa = texto.hex()
+print(hexa)
+# Byte Hexadecimal para permitir o python decodificar corretamente
+bytes_object = bytes.fromhex(hexa)
+print(bytes_object)
+# Conversão para ASCII com prevenção de erro com 'replace'
+ascii_string = bytes_object.decode("ASCII", 'replace')
 
-string = ("609c1bfc0500110047304502205c2f2e16222fb685369b2e6ac205c02638721bf4dc1d94b2265bc0d3e7ea2a9402210098764829a1d65c35c248c40205e39c9cdfea23f02b1fe5f07d029f003cba45cf0000000c4914154544135d45144146400d")
-binary_str = codecs.decode(string, "hex")
-print(str(binary_str, 'ascii'))
+final_format = (re.findall(r'[A-Z]|[a-z]|[0-9]', ascii_string))
+
+for t in final_format:
+    print(t,end="")
